@@ -1,0 +1,25 @@
+<?php
+
+class Selects extends CI_Model {
+
+function __construct()
+{
+parent::__construct();
+
+}
+
+	function select_database()
+	{
+		$this->load->database();
+		$fileupload = $this->db->get('fileupload')->result_array();
+		$userid = $this->db->get('userid')->result_array();
+		$userinfo = $this->db->get('userinfo')->result_array();
+		$query['fileupload'] =  $fileupload;
+		$query['userid'] =  $userid;
+		$query['userinfo'] =  $userinfo;
+		return $query;
+
+	}
+}
+
+?>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>Nav Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<!-- CSS STYLE -->
+	<link rel="stylesheet"  href="css/jquery.mobile-1.3.2.min.css">
+    <link rel="stylesheet" href="css/Sad.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+	<!-- JS -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script type="text/javascript"> 
+ function sizeFrame() {
+$("#myIframe", top.document).css({ height: 0 });
+// กำหนดความสูงของ iframe ให้เท่ากับ 0
+var heightDiv=$(document).height(); 
+// หาความสูงของเพจ pagecontent.html
+$("#myIframe", top.document).height(heightDiv); 
+// กำหนดความสูงของ iframe ให้เท่ากับความสูงของ pagecontent.html
+}
+$(function(){
+          sizeFrame(); 
+          // เรียกใช้ฟังก์ขันเมื่อไฟล์ pagecontent.html โหลดเสร็จแล้ว
+          $("#myIframe").load(sizeFrame); 
+         // เรียกใช้ฟังก์ขันเมื่อ iframe โหลด ไฟล์  pagecontent.html
+});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		   $.getJSON('http://www.youtube.com/playlist?list=LL2VBosNuCGhFEPLIBPZTnPA',function(result){
+			  $.each(result, function(key, val) {
+				   $("#result").append( key + '=' + val + '<br />');
+			  });
+			});
+	});
+</script>
+</head>
+<body>
+<div data-role="page" data-overlay-theme="c">
+<div class="ui-bar-a" data-role="header" data-icon="bars">
+<h1>IT Feed</h1>
+</div><!-- /header -->
+		
+<div data-role="content"><iframe name="myIframe" width="80%" height="300px" 
+ id="myIframe" src="http://www.overclockzone.com/overclockzonetv.php#list" frameborder="0" scrolling="no" ></iframe></div><!-- /content -->
+
+ 
+ </div>
+</body>
+</html>
+	
+	

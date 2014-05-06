@@ -1,0 +1,21 @@
+<?php
+
+class Delete_c extends CI_Controller {
+
+ public function __construct()
+ {
+   parent::__construct();
+ }
+
+		public function index($id,$filde)
+			{
+				$this->load->model('selects');
+				$data = $this->selects->select_database();
+				$this->load->model('deletes');
+				$v=$this->deletes->delete($id,$filde);
+				$this->load->view('home_view',$data);
+				print = '<script langquage="javascript"> window.location="#"; </script>';
+				echo $v;
+			}
+	}
+?>
